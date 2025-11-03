@@ -165,6 +165,22 @@ p{
     display:inline-block;
 }
 .join-btn:hover{background:#4752C4;transform:scale(1.05)}
+.circle-image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:25px 0;
+}
+.circle-image img{
+    width:160px;
+    height:160px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #1e3c72;
+    box-shadow:0 6px 20px rgba(0,0,0,0.2);
+    transition:transform 0.3s ease;
+}
+.circle-image img:hover{transform:scale(1.08)}
 .discord-widget{
     width:100%;
     height:500px;
@@ -249,6 +265,9 @@ html{scrollbar-width:none;-ms-overflow-style:none}
         <p>Connect with the community and stay updated!</p>
         <div class="discord-info" id="discordInfo"><p>Loading server info...</p></div>
         <a href="https://discord.gg/u7YkVXh77f" target="_blank" class="join-btn">Join Server</a>
+        <div class="circle-image">
+            <img src="dachshund.jpg" alt="Dachshund Mascot">
+        </div>
         <iframe src="https://discord.com/widget?id=1433647475746537485&theme=light" class="discord-widget" allowfullscreen></iframe>
     </div>
 </section>
@@ -279,7 +298,6 @@ copyBtn.addEventListener('click',async()=>{
     }catch(e){alert('Copy failed. Please copy manually.')}
 });
 
-// Smooth scroll + active nav highlight
 const navLinks=document.querySelectorAll('nav a');
 function setActiveLink(id){
     navLinks.forEach(link=>{
@@ -295,7 +313,6 @@ const observer=new IntersectionObserver(entries=>{
 },{threshold:0.5});
 document.querySelectorAll('.section').forEach(sec=>observer.observe(sec));
 
-// Discord Info
 async function loadDiscordInfo(){
     const container=document.getElementById('discordInfo');
     try{
